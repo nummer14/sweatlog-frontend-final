@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* body의 기본 폰트를 Quicksand로 명확하게 지정합니다. */
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
