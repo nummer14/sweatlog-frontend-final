@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import useAuthStore from '@/store/authStore.js';
+import api from '@/api/axios';
 
 // Pages
 import LandingPage from '@/pages/LandingPage.jsx'; // LandingPage import
@@ -22,8 +23,32 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 import Header from '@/components/Header';
 
 function App() {
-  const { accessToken } = useAuthStore();
+  const { accessToken, setTokens } = useAuthStore();
 
+  // 👇👇👇 이 코드가 마지막 퍼즐 조각입니다! 👇👇👇
+  useEffect(() => {
+    // 앱이 처음 시작될 때 Local Storage를 확인합니다.
+    const storedAuthState = localStorage.getItem('auth-storage');
+
+    if (storedAuthState) {
+      try {
+        const parsedState = JSON.parse(storedAuthState);
+        const token = parsedState.state.accessToken;
+
+        if (token) {
+          // 1. Zustand 스토어의 상태를 복구합니다.
+          setTokens({ accessToken: token, user: parsedState.state.user });
+          
+          // 2. Axios 인스턴스의 기본 헤더에도 토큰을 설정해줍니다.
+          //    이것이 있어야 새로고침 후에도 API 호출이 정상적으로 작동합니다.
+          api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        }
+      } catch (error) {
+        console.error("Failed to parse auth storage:", error);
+      }
+    }
+  }, []);
+  
   return (
     <Router>
       <Header />
