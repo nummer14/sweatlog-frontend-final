@@ -13,8 +13,7 @@ export default function SocialFeed() {
       try {
         // 백엔드의 전체 게시물 조회 API 호출
         const response = await api.get('/posts');
-        // Page<PostResponse> 형식이므로 content를 사용
-        setPosts(response.data.content);
+        setPosts(response.data.content || []);
       } catch (err) {
         setError("피드를 불러오는 중 오류가 발생했습니다.");
         console.error(err);

@@ -50,7 +50,8 @@ export default function RoutineEditor() {
       return;
     }
     
-    const payload = { routineName, details };
+    // 👇 [수정] 백엔드 DTO에 맞게 details -> routineDetails로 필드명을 변경합니다.
+    const payload = { routineName, routineDetails: details };
     
     try {
       if (isEditing) {
@@ -65,7 +66,7 @@ export default function RoutineEditor() {
       setError(err.response?.data?.message || "요청에 실패했습니다.");
     }
   };
-
+  
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl font-bold mb-6 text-center">{isEditing ? '루틴 수정' : '새 루틴 만들기'}</h1>

@@ -22,26 +22,27 @@ const slides = [
         </h1>
       </>
     ),
-  },
+  },  
   {
-    // ✅ 2번 슬라이드: 배경 이미지를 기존 3번 이미지로 변경
     image:
       "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=1200&q=80",
     content: (
+      <>
         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            단순한 기록을 넘어,<br ></br> 당신의 성장에 필요한<br /> 모든<br/> 것을 담았습니다.            
-      </h1>
+          기록하는 순간,
+          <br />
+          변화는 시작됩니다.
+        </h1>
+      </>
     ),
   },
   {
-    // ✅ 3번 슬라이드: '여럿이 함께 웃으며 운동하는' 새 이미지로 변경
     image:
       "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=80",
     content: (
       <>
         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-16">
-          체계적인 운동의 
-          <span className="text-red-500"> 시작.</span>
+          어제의 나를 넘어,<br /> 더 나은 당신을 위해
           <r />
         </h1>
         {/* ✅ 그 아래에 기능 3가지 소개 배치 */}
@@ -51,7 +52,7 @@ const slides = [
               <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
                 <Dumbbell className="h-6 w-6 text-white" />
               </div>
-              간편한 운동 기록
+              간편한 기록
             </dt>
             <dd className="mt-2 text-base leading-7 text-gray-300">
               어떤 운동이든 몇 번의 클릭으로 손쉽게 기록하고 관리하세요.
@@ -62,7 +63,7 @@ const slides = [
               <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
                 <Target className="h-6 w-6 text-white" />
               </div>
-              체계적인 목표 관리
+              똑똑한 목표 관리
             </dt>
             <dd className="mt-2 text-base leading-7 text-gray-300">
               구체적인 목표를 설정하고 달성률을 추적하며 운동 습관을
@@ -74,10 +75,10 @@ const slides = [
               <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
                 <Users className="h-6 w-6 text-white" />
               </div>
-              함께하는 소셜 피드
+              함께하는 동기 부여
             </dt>
             <dd className="mt-2 text-base leading-7 text-gray-300">
-              친구들과 응원하며 함께 성장하고 동기를 부여받으세요.
+              운동 기록을 공유하고 서로 응원하며 지치지 않는 열정을 충전하세요.            
             </dd>
           </div>
         </dl>
@@ -92,7 +93,7 @@ const slides = [
         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
           오늘부터, 당신의 노력을
           <br />
-          의미있는 성장으로 바꿔보세요.
+          의미있는 데이터로 바꿔보세요.
         </h1>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
